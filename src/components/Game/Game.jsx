@@ -18,8 +18,10 @@ function Game() {
 
   return (
     <>
-      <div className='guess-results'></div>
-      <GuessList guesses={guesses} />
+      <div className='guess-results'>
+        <GuessList guesses={guesses} answer={{ answer }} />
+      </div>
+
       <Input
         guess={guess}
         setGuess={setGuess}
