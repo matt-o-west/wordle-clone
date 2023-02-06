@@ -1,25 +1,16 @@
-export function checkGuess(guess, answer) {
-  if (!guess) {
-    return null;
+export function checkGuess(guess, answer, index) {
+  const answerChar = answer[0].split('')[index]
+  const letter = guess.charAt(index)
+  const parsedAnswer = answer[0]
+  console.log(letter, answer[0].split('')[index], parsedAnswer)
+
+  let status
+  if (letter === answerChar) {
+    status = 'correct'
+  } else if (parsedAnswer.includes(letter)) {
+    status = 'misplaced'
+  } else {
+    status = 'incorrect'
   }
-
-  const guessChars = guess.toUpperCase().split('');
-  const answerChars = answer.split('');
-
-  return guessChars.map((guessChar, index) => {
-    const answerChar = answerChars[index];
-
-    let status;
-    if (guessChar === answerChar) {
-      status = 'correct';
-    } else if (answerChars.includes(guessChar)) {
-      status = 'misplaced';
-    } else {
-      status = 'incorrect';
-    }
-    return {
-      letter: guessChar,
-      status,
-    };
-  });
+  return status
 }

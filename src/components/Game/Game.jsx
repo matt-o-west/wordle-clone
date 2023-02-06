@@ -14,7 +14,7 @@ const answer = sample(WORDS)
 function Game() {
   const [guess, setGuess] = useState('')
   const [guesses, setGuesses] = useState([])
-  console.info({ answer })
+  //console.info({ answer })
 
   return (
     <>
