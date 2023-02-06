@@ -7,10 +7,13 @@ const Input = ({ setGuess, setGuesses, guesses }) => {
   const handleSubmitGuess = (e) => {
     e.preventDefault()
     input.length !== 5 && alert('Please enter a 5 letter word')
-    console.log(input)
-    setGuess(input)
-    setGuesses([...guesses, input])
-    setInput('')
+
+    if (input.length === 5) {
+      setGuess(input)
+      setGuesses([...guesses, input])
+      setInput('')
+    }
+    return null
   }
 
   return (

@@ -1,15 +1,17 @@
 import { range } from 'lodash-es'
 import React from 'react'
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants'
-import { checkGuess } from '../../game-helpers'
+import { checkGuess, gameFinished } from '../../game-helpers'
 
 const GuessList = ({ guesses, answer }) => {
   //console.log(guesses)
   const splitAnswer = Object.values(answer)
+  const answerString = splitAnswer[0]
   console.log(Object.values(answer)[0])
 
   return (
     <>
+      {gameFinished(guesses, answerString)}
       {guesses.length >= NUM_OF_GUESSES_ALLOWED && (
         <p className='guess'>You have run out of guesses!</p>
       )}

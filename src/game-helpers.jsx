@@ -1,3 +1,5 @@
+import { NUM_OF_GUESSES_ALLOWED } from './constants'
+
 export function checkGuess(guess, answer, index) {
   const answerChar = answer[0].split('')[index]
   const letter = guess.charAt(index)
