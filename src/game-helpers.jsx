@@ -35,7 +35,7 @@ export function gameFinished(guesses, answer) {
       </div>
     )
   } else if (
-    guesses === NUM_OF_GUESSES_ALLOWED &&
+    guesses.length === NUM_OF_GUESSES_ALLOWED &&
     compare(guesses, answer) === false
   ) {
     return (

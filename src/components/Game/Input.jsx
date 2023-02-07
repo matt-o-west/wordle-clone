@@ -20,10 +20,14 @@ const Input = ({ setGuess, setGuesses, guesses }) => {
     <form className='guess-input-wrapper' onSubmit={handleSubmitGuess}>
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
+        required
+        pattern='[a-zA-Z]{5}'
+        title='5 letter word'
         id='guess-input'
         type='text'
         value={input}
         onChange={(e) => setInput(e.target.value.toUpperCase())}
+        disabled={guesses.length >= 6}
       />
     </form>
   )
