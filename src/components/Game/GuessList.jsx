@@ -7,23 +7,24 @@ const GuessList = ({ guesses, answer }) => {
   //console.log(guesses)
   const splitAnswer = Object.values(answer)
   const answerString = splitAnswer[0]
-  console.log(Object.values(answer)[0])
+  console.log(guesses.includes(answerString))
 
   return (
     <>
       {gameFinished(guesses, answerString)}
-      {guesses.length >= NUM_OF_GUESSES_ALLOWED && (
-        <p className='guess'>You have run out of guesses!</p>
+      {guesses.length > NUM_OF_GUESSES_ALLOWED && (
+        <span>You have run out of guesses!</span>
       )}
-      {range(NUM_OF_GUESSES_ALLOWED - guesses.length).map((i) => (
-        <p className='guess' key={i}>
-          {range(5).map((i) => (
-            <span className='cell' key={i}></span>
-          ))}
-        </p>
-      ))}
+      {guesses.length < NUM_OF_GUESSES_ALLOWED &&
+        range(NUM_OF_GUESSES_ALLOWED - guesses.length).map((i) => (
+          <p className='guess' key={i}>
+            {range(5).map((i) => (
+              <span className='cell' key={i}></span>
+            ))}
+          </p>
+        ))}
 
-      {guesses &&
+      {guesses.length <= 6 &&
         guesses.map((guess) => (
           <p className='guess' key={self.crypto.randomUUID()}>
             {guess.split('').map((letter, i) => (

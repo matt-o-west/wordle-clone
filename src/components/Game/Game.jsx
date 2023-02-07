@@ -16,8 +16,6 @@ function Game() {
   const [guesses, setGuesses] = useState([])
   //console.info({ answer })
 
-  guess > 5 && alert('Please enter a 5 letter word') & setGuess('')
-
   return (
     <>
       <div className='guess-results'>

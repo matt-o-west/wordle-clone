@@ -22,16 +22,22 @@ export function gameFinished(guesses, answer) {
     return guesses.includes(answer)
   }
 
-  if (guesses <= NUM_OF_GUESSES_ALLOWED && compare(guesses, answer) === true) {
+  if (
+    guesses.length <= NUM_OF_GUESSES_ALLOWED &&
+    compare(guesses, answer) === true
+  ) {
     return (
       <div class='happy banner'>
         <p>
           <strong>Congratulations!</strong> Got it in
-          <strong>{guesses} guesses</strong>.
+          <strong> {guesses.length} guesses</strong>.
         </p>
       </div>
     )
-  } else if (guesses === NUM_OF_GUESSES_ALLOWED && answer === 'incorrect') {
+  } else if (
+    guesses === NUM_OF_GUESSES_ALLOWED &&
+    compare(guesses, answer) === false
+  ) {
     return (
       <div class='sad banner'>
         <p>
